@@ -23,6 +23,8 @@ Callers supply candidate sets through plain data; the engine scores and decides.
 
 ## Status
 
-Milestone 1 complete: the matcher (`match`), ingest layer (`ingest`), and shared
-text primitives (`text`) live here. Remaining work: vocabulary consolidation
-(status conditions) and taxonomy classification, then the application call sites.
+Milestones 0–4 complete: the matcher (`match`), ingest layer (`ingest`), shared
+text primitives (`text`), the single status vocabulary (`vocab`), taxonomy
+classification (`classify`), and the single-import-route cutover (interchange
+is now the only facility import path; `facilityimport` and `mdis` are gone)
+are all in place. Remaining: extraction to its own repository.

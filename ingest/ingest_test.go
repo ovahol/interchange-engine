@@ -116,3 +116,33 @@ func TestTryParseLooseDate(t *testing.T) {
 		}
 	}
 }
+
+func TestSaneCatalogName(t *testing.T) {
+	bad := []string{"10/15/22 0:00", "2024-11-08", "18/01/2021", "Functional", "functional", "835621861", "", " - "}
+	for _, v := range bad {
+		if SaneCatalogName(v) {
+			t.Errorf("expected %q to be rejected as a catalog name", v)
+		}
+	}
+	good := []string{"BD", "GE", "SternMed", "C451", "YP-GM1", "Meiling Biomedical", "ATMOS MedizinTechnik GmbH & Co. KG"}
+	for _, v := range good {
+		if !SaneCatalogName(v) {
+			t.Errorf("expected %q to be accepted as a catalog name", v)
+		}
+	}
+}
+
+func TestMisplacedNameValue(t *testing.T) {
+	for _, v := range []string{"10/15/22 0:00", "Functional", "faulty"} {
+		if !MisplacedNameValue(v) {
+			t.Errorf("MisplacedNameValue(%q) = false, want true", v)
+		}
+	}
+	// Workflow-only status words (no operational condition) stay name-like,
+	// matching the long-standing gate: only condition vocabulary is dropped.
+	for _, v := range []string{"220", "C451", "YP-GM1", "Infusion Pump", "on hold"} {
+		if MisplacedNameValue(v) {
+			t.Errorf("MisplacedNameValue(%q) = true, want false", v)
+		}
+	}
+}

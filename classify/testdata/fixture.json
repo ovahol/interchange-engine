@@ -1,0 +1,169 @@
+{
+  "id": "test-fixture",
+  "name": "Neutral test fixture taxonomy",
+  "version": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "source": "test fixture only -- not a vendored vendor vocabulary",
+  "fields": [
+    {
+      "key": "device_type",
+      "label": "Device Type",
+      "required": true,
+      "allowed_values": [
+        "Monitoring & Measurement Devices",
+        "Treatment, Surgical & Life Support Devices",
+        "Diagnostic & Imaging Devices",
+        "Laboratory & IVD Equipment",
+        "Medical Gas & Respiratory Devices",
+        "Sterilization & Infection Control Devices",
+        "Support Equipment & Furniture",
+        "Consumables & Accessories"
+      ]
+    },
+    {
+      "key": "device_category",
+      "label": "Device Category",
+      "allowed_values": ["Diagnostic", "Therapeutic", "Analytical", "Support"]
+    },
+    {
+      "key": "device_function",
+      "label": "Device Function",
+      "allowed_values": [
+        "Additional Physiological Monitoring and Diagnostic",
+        "Surgical and Intensive Care",
+        "Diagnostic Imaging",
+        "Analytical Laboratory",
+        "Respiratory Care",
+        "Patient Related and Other",
+        "Sterilization",
+        "Life Support",
+        "Consumables"
+      ]
+    },
+    {
+      "key": "device_application_risk",
+      "label": "Application Risk",
+      "allowed_values": [
+        "Inappropriate therapy or misdiagnosis",
+        "Potential patient or operator injury",
+        "Equipment damage",
+        "Potential patient death",
+        "No significant risk"
+      ]
+    }
+  ],
+  "inference": {
+    "rules": [
+      {
+        "id": "fixture.name.ecgmachine",
+        "keywords": ["ECG machine"],
+        "set": {
+          "device_type": "Monitoring & Measurement Devices",
+          "device_category": "Diagnostic",
+          "device_function": "Additional Physiological Monitoring and Diagnostic",
+          "device_application_risk": "Inappropriate therapy or misdiagnosis"
+        }
+      },
+      {
+        "id": "fixture.name.infusionpump",
+        "keywords": ["Infusion pump"],
+        "set": {
+          "device_type": "Treatment, Surgical & Life Support Devices",
+          "device_category": "Therapeutic",
+          "device_function": "Surgical and Intensive Care",
+          "device_application_risk": "Potential patient or operator injury"
+        }
+      },
+      {
+        "id": "fixture.name.chemistryanalyzer",
+        "keywords": ["Chemistry analyzer"],
+        "set": {
+          "device_type": "Laboratory & IVD Equipment",
+          "device_category": "Analytical",
+          "device_function": "Analytical Laboratory",
+          "device_application_risk": "Inappropriate therapy or misdiagnosis"
+        }
+      },
+      {
+        "id": "fixture.name.oxygenconcentrator",
+        "keywords": ["Oxygen concentrator"],
+        "set": {
+          "device_type": "Medical Gas & Respiratory Devices",
+          "device_category": "Therapeutic",
+          "device_function": "Respiratory Care",
+          "device_application_risk": "Potential patient or operator injury"
+        }
+      },
+      {
+        "id": "fixture.source.monitoring",
+        "source_types": ["monitoring equipment"],
+        "set": {
+          "device_type": "Monitoring & Measurement Devices",
+          "device_category": "Diagnostic",
+          "device_function": "Additional Physiological Monitoring and Diagnostic",
+          "device_application_risk": "Inappropriate therapy or misdiagnosis"
+        }
+      },
+      {
+        "id": "fixture.source.infusion",
+        "source_types": ["infusion devices"],
+        "set": {
+          "device_type": "Treatment, Surgical & Life Support Devices",
+          "device_category": "Therapeutic",
+          "device_function": "Surgical and Intensive Care",
+          "device_application_risk": "Potential patient or operator injury"
+        }
+      },
+      {
+        "id": "fixture.source.imaging",
+        "source_types": ["imaging nuclear medicine equipment"],
+        "set": {
+          "device_type": "Diagnostic & Imaging Devices",
+          "device_category": "Diagnostic",
+          "device_function": "Diagnostic Imaging",
+          "device_application_risk": "Inappropriate therapy or misdiagnosis"
+        }
+      },
+      {
+        "id": "fixture.source.laboratory",
+        "source_types": ["laboratory equipment"],
+        "set": {
+          "device_type": "Laboratory & IVD Equipment",
+          "device_category": "Analytical",
+          "device_function": "Analytical Laboratory",
+          "device_application_risk": "Inappropriate therapy or misdiagnosis"
+        }
+      },
+      {
+        "id": "fixture.source.medicalgas",
+        "source_types": ["medical gas equipment"],
+        "set": {
+          "device_type": "Medical Gas & Respiratory Devices",
+          "device_category": "Therapeutic",
+          "device_function": "Respiratory Care",
+          "device_application_risk": "Potential patient or operator injury"
+        }
+      },
+      {
+        "id": "fixture.source.medical",
+        "source_types": ["medical equipment"],
+        "set": {
+          "device_type": "Treatment, Surgical & Life Support Devices",
+          "device_category": "Therapeutic",
+          "device_function": "Life Support",
+          "device_application_risk": "Potential patient or operator injury"
+        }
+      },
+      {
+        "id": "fixture.source.furniture",
+        "source_types": ["medical furniture"],
+        "set": {
+          "device_type": "Support Equipment & Furniture",
+          "device_category": "Support",
+          "device_function": "Patient Related and Other",
+          "device_application_risk": "Equipment damage"
+        }
+      }
+    ]
+  }
+}
