@@ -1,0 +1,194 @@
+{
+  "devices": [
+    {
+      "note": "compound name: alias carries the full phrase",
+      "raw": "Slit Lamp Microscope",
+      "candidates": [
+        { "name": "Slit lamp", "common_names": ["Slit lamp microscope"] },
+        { "name": "Microscope, laboratory", "common_names": ["Microscope"] }
+      ],
+      "want": "Slit lamp"
+    },
+    {
+      "note": "genuine tie between two real devices",
+      "raw": "Pump",
+      "candidates": [
+        { "name": "Infusion pump" },
+        { "name": "Suction pump" }
+      ],
+      "want": ""
+    },
+    {
+      "note": "shared generic words, neither string contains the other",
+      "raw": "X-ray system",
+      "candidates": [
+        { "name": "X-ray machine", "common_names": ["X-ray machine"] }
+      ],
+      "want": "X-ray machine"
+    },
+    {
+      "note": "brand-only overlap must not pick a different modality",
+      "raw": "Siemens CT",
+      "candidates": [
+        { "name": "Siemens MRI" }
+      ],
+      "want": ""
+    },
+    {
+      "note": "short numeric fragment must not match a longer model",
+      "raw": "220",
+      "candidates": [
+        { "name": "BioPlex 2200" }
+      ],
+      "want": ""
+    },
+    {
+      "note": "shortest containing name wins over qualified siblings",
+      "raw": "Patient Monitor",
+      "candidates": [
+        { "name": "Multiparametric advanced patient monitor" },
+        { "name": "Multiparametric basic patient monitor" },
+        { "name": "Multiparametric patient monitor" },
+        { "name": "Multiparametric transport patient monitor" }
+      ],
+      "want": "Multiparametric patient monitor"
+    },
+    {
+      "note": "hypernym alias alone is not distinctive enough",
+      "raw": "Medical Trolley/Cart",
+      "candidates": [
+        { "name": "Clean linen cart", "common_names": ["linen trolley", "cart"] },
+        { "name": "Defibrillator trolley" }
+      ],
+      "want": ""
+    },
+    {
+      "note": "plural folds to the singular catalog name",
+      "raw": "Infusion Pumps",
+      "candidates": [
+        { "name": "Infusion pump" }
+      ],
+      "want": "Infusion pump"
+    },
+    {
+      "note": "ligature folds to its expanded spelling",
+      "raw": "Straße Monitor",
+      "candidates": [
+        { "name": "Strasse monitor" }
+      ],
+      "want": "Strasse monitor"
+    },
+    {
+      "note": "single token fully covered by a longer catalog name",
+      "raw": "Siemens",
+      "candidates": [
+        { "name": "Siemens Healthineers" }
+      ],
+      "want": "Siemens Healthineers"
+    },
+    {
+      "note": "long source phrase with a distinctive qualifier",
+      "raw": "B Braun Infusomat Space infusion pump",
+      "candidates": [
+        { "name": "Infusion pump, volumetric" }
+      ],
+      "want": "Infusion pump, volumetric"
+    },
+    {
+      "note": "weak overlap stays unresolved",
+      "raw": "Cart (Sterilization)",
+      "candidates": [
+        { "name": "Sterilizing Units, Steam" }
+      ],
+      "want": ""
+    },
+    {
+      "note": "derivational variant (-izing/-ization)",
+      "raw": "Sterilizing Unit",
+      "candidates": [
+        { "name": "Sterilization unit" }
+      ],
+      "want": "Sterilization unit"
+    }
+  ],
+  "names": [
+    {
+      "note": "typo plus corporate suffix",
+      "raw": "Samsun",
+      "catalog": ["Samsung Co Ltd", "Siemens"],
+      "want": "Samsung Co Ltd"
+    },
+    {
+      "note": "shorter name fully explained by the raw qualifier",
+      "raw": "Luckcome Tech",
+      "catalog": ["Luckcome", "Luckcome Technology"],
+      "want": "Luckcome"
+    },
+    {
+      "note": "shared token only, genuine tie",
+      "raw": "GE Health",
+      "catalog": ["GE Healthcare", "GE Medical"],
+      "want": ""
+    },
+    {
+      "note": "strict token-overlap winner",
+      "raw": "GE Healthcare Systems",
+      "catalog": ["GE Healthcare", "GE Medical"],
+      "want": "GE Healthcare"
+    },
+    {
+      "note": "generic corporate words must not carry a match",
+      "raw": "CIGA Healthcare Ltd",
+      "catalog": ["Trivitron Healthcare Pvt. Ltd.", "Unrelated Devices"],
+      "want": ""
+    },
+    {
+      "note": "typo inside a suffixed corporate name",
+      "raw": "Omron Heathcare Co. Ltd",
+      "catalog": ["Omron Healthcare Co., Ltd"],
+      "want": "Omron Healthcare Co., Ltd"
+    },
+    {
+      "note": "punctuation variance only",
+      "raw": "LONGFIAN SCITECH CO, LTD",
+      "catalog": ["Longfian Scitech Co., Ltd"],
+      "want": "Longfian Scitech Co., Ltd"
+    },
+    {
+      "note": "single-token typo with zero token overlap",
+      "raw": "Otoskope",
+      "catalog": ["Otoscope"],
+      "want": "Otoscope"
+    },
+    {
+      "note": "two equally plausible names",
+      "raw": "Abi",
+      "catalog": ["Abi Medical", "Abi Surgical"],
+      "want": ""
+    },
+    {
+      "note": "uppercase diacritic folds",
+      "raw": "DrÄger",
+      "catalog": ["Drager"],
+      "want": "Drager"
+    },
+    {
+      "note": "ligature folds in names too",
+      "raw": "Straße",
+      "catalog": ["Strasse"],
+      "want": "Strasse"
+    },
+    {
+      "note": "non-plural 'lens' must not collide with 'len'",
+      "raw": "Lens",
+      "catalog": ["Len"],
+      "want": ""
+    },
+    {
+      "note": "derivational variant in a multi-word name",
+      "raw": "Organizing Systems",
+      "catalog": ["Organization Systems"],
+      "want": "Organization Systems"
+    }
+  ]
+}
